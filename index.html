@@ -120,50 +120,59 @@
             </div>
             <div class="scroll-container">
                 
-            <a href="https://github.com/limag-henrique/site-ijunior" class="project-card" target="_blank">
+            <div class="project-card">
                 <div>
-                    <h3>Site Ijunior Solu&ccedil;&otilde;es Digitais</h3>
-                    <p style="margin-top: 10px;">Implementa&ccedil;&atilde;o de ideias de melhoras na interface, performance e marketing de empresa de solu&ccedil;&otilde;es digitais.</p>
+                    <h3>Meliora 2.0 SDF</h3>
+                    <p style="margin-top: 10px;">Aplicação web para gestão integrada de processos e dados. Desenvolvida com Laravel 5.7 e Vue.js.</p>
                 </div>
-                <p>HTML • CSS • JS</p>
+                <p>Sistemas Web Complexos</p>
                 <span class="project-bg-number">01</span>
-            </a>
+            </div>
 
-            <a href="https://github.com/limag-henrique/missao42.git" class="project-card" target="_blank">
+            <div class="project-card">
                 <div>
-                    <h3>Missão 42 SP</h3>
-                    <p style="margin-top: 10px;">Desafios intensivos de lógica e C em ambiente peer-to-peer.</p>
+                    <h3>Sistema Financeiro</h3>
+                    <p style="margin-top: 10px;">Plataforma de gestão financeira pessoal com inteligência de investimentos (Modelo de Markowitz) usando Python e Streamlit.</p>
                 </div>
-                <p>C • Shell • Git</p>
+                <p>Automações Inteligentes e IA</p>
                 <span class="project-bg-number">02</span>
-            </a>
+            </div>
 
-            <a href="https://github.com/limag-henrique/batalha-naval.git" class="project-card" target="_blank">
+            <a href="https://huggingface.co/spaces/limag-henrique/capivara" class="project-card" target="_blank">
                 <div>
-                    <h3>Batalha Naval</h3>
-                    <p style="margin-top: 10px;">Implementação clássica do jogo com lógica de matrizes e estratégia.</p>
+                    <h3>Capivara Romântica</h3>
+                    <p style="margin-top: 10px;">Agente de IA customizado para WhatsApp utilizando OpenAI e FastAPI, simulando a personalidade de um universitário.</p>
                 </div>
-                <p>Linguagem C • Lógica de Programação</p>
+                <p>Automações Inteligentes</p>
                 <span class="project-bg-number">03</span>
             </a>
 
-            <a href="https://github.com/limag-henrique/estudantesinternacionais.git" class="project-card" target="_blank">
+            <a href="https://gusli-books.onrender.com" class="project-card" target="_blank">
                 <div>
-                    <h3>Apoio Intercambistas</h3>
-                    <p style="margin-top: 10px;">Plataforma para auxiliar alunos estrangeiros na UFMG.</p>
+                    <h3>Gusli Books</h3>
+                    <p style="margin-top: 10px;">Plataforma de e-commerce de livros com Node.js, React e SQLite. Demonstração de loja virtual literária completa.</p>
                 </div>
-                <p>HTML • CSS • JS</p>
+                <p>Landing Pages e E-commerces</p>
                 <span class="project-bg-number">04</span>
             </a>
 
-            <div class="project-card" style="background-color: var(--accent);">
+            <a href="https://limag-henrique.github.io/gusmaomadeiras-site/" class="project-card" target="_blank">
                 <div>
-                    <h3>Em Breve</h3>
-                    <p style="margin-top: 10px;">Novos projetos em desenvolvimento na Ijunior.</p>
+                    <h3>Gusmão Madeiras</h3>
+                    <p style="margin-top: 10px;">Portfólio web responsivo em SPA, catálogo com filtros em tempo real e integração com WhatsApp para orçamentos.</p>
                 </div>
-                <p>Fullstack</p>
+                <p>Landing Pages</p>
                 <span class="project-bg-number">05</span>
-            </div>
+            </a>
+
+            <a href="https://entreparagrafos.com.br/" class="project-card" target="_blank">
+                <div>
+                    <h3>Revista Entre Parágrafos</h3>
+                    <p style="margin-top: 10px;">Portal acadêmico completo com sistema back-end, área restrita para autores e leitores para publicação de artigos.</p>
+                </div>
+                <p>Sistemas Web Complexos</p>
+                <span class="project-bg-number">06</span>
+            </a>
 
             </div>
         </section>
@@ -205,5 +214,39 @@
         </div>
     </footer>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const scrollContainer = document.querySelector('.scroll-container');
+            if (!scrollContainer) return;
+            
+            let autoScrollInterval;
+
+            function startAutoScroll() {
+                autoScrollInterval = setInterval(() => {
+                    const firstCard = scrollContainer.querySelector('.project-card');
+                    if (!firstCard) return;
+                    
+                    const cardWidth = firstCard.offsetWidth + 30; // 30px is the gap
+                    
+                    if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 10) {
+                        scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                    }
+                }, 3000);
+            }
+
+            function stopAutoScroll() {
+                clearInterval(autoScrollInterval);
+            }
+
+            scrollContainer.addEventListener('mouseenter', stopAutoScroll);
+            scrollContainer.addEventListener('mouseleave', startAutoScroll);
+            scrollContainer.addEventListener('touchstart', stopAutoScroll, {passive: true});
+            scrollContainer.addEventListener('touchend', startAutoScroll, {passive: true});
+
+            startAutoScroll();
+        });
+    </script>
 </body>
 </html>
