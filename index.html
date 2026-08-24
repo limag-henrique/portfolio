@@ -16,16 +16,25 @@
             <div class="logo">
                 <a href="#">HENRIQUE<span>.</span></a>
             </div>
-            <nav class="menu-desktop">
+            <nav class="menu-desktop" aria-label="Navegação principal" data-i18n-aria-label="navigationLabel">
                 <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#sobre">Sobre mim</a></li>
-                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#inicio" data-i18n="navigation.home">Início</a></li>
+                    <li><a href="#sobre" data-i18n="navigation.about">Sobre mim</a></li>
+                    <li><a href="#projetos" data-i18n="navigation.projects">Projetos</a></li>
                 </ul>
             </nav>
-            <a href="#contato">
-                <button class="btn-header">Contato</button>
-            </a>
+            <div class="header-actions">
+                <div class="language-switcher" aria-label="Selecionar idioma" data-i18n-aria-label="languageSelectorLabel" role="group">
+                    <button class="language-option is-active" type="button" data-language="pt" aria-pressed="true">PT</button>
+                    <span aria-hidden="true">|</span>
+                    <button class="language-option" type="button" data-language="en" aria-pressed="false">EN</button>
+                    <span aria-hidden="true">|</span>
+                    <button class="language-option" type="button" data-language="es" aria-pressed="false">ES</button>
+                </div>
+                <a href="#contato">
+                    <button class="btn-header" data-i18n="navigation.contact">Contato</button>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -34,43 +43,78 @@
             <div class="hero-container">
                 <div class="layer layer-bottom">
                     <div class="content-wrap">
-                        <h1>TUDO É<br><span>DIGITAL.</span></h1>
-                        <p>Onde posso te ajudar no universo digital hoje?</p>
+                        <h1><span data-i18n="hero.firstLine">TUDO É</span><br><span data-i18n="hero.accentLine">DIGITAL.</span></h1>
+                        <p data-i18n="hero.question">Onde posso te ajudar no universo digital hoje?</p>
                     </div>
                 </div>
 
                 <div class="layer layer-top">
                     <div class="content-wrap">
-                        <h1>IT'S ALL<br><span>DIGITAL.</span></h1>
-                        <p>Where can I help you in the digital universe today?</p>
+                        <h1><span data-i18n="hero.firstLine">TUDO É</span><br><span data-i18n="hero.accentLine">DIGITAL.</span></h1>
+                        <p data-i18n="hero.question">Onde posso te ajudar no universo digital hoje?</p>
                     </div>
                 </div>
                 
                 <div class="cta-wrapper">
-                    <a href="#contato" class="btn-cta">Iniciar Projeto</a>
+                    <a href="#contato" class="btn-cta" data-i18n="hero.cta">Iniciar Projeto</a>
                 </div>
             </div>
         </section>
 
         <section id="sobre">
             <div class="container">
-                <h2 class="section-title">Sobre Mim</h2>
+                <h2 class="section-title" data-i18n="about.title">Sobre Mim</h2>
                 
                 <div class="about-grid">
-                    <div class="bio">
+                    <div class="bio" data-i18n-container="profile">
                         <p class="bio-text">
                             Sou estudante de Ciência da Computação na UFMG (2030).<br><br>
                             Gosto de imaginar soluções que fazem nossa vida melhor. Daí eu crio elas.
                         </p>
+
+                        <div class="experience-block profile-block">
+                            <h3>Pesquisas Científicas</h3>
+                            <div class="experience-item">
+                                <h4><a href="https://doi.org/10.5281/zenodo.21659240" target="_blank">A falsa ideia de “criminalidade facial”</a></h4>
+                                <p>Viés racial, listas públicas de procurados e os limites da similaridade facial. Preprint publicado em 19 de agosto de 2026.</p>
+                            </div>
+                            <div class="experience-item">
+                                <h4><a href="https://doi.org/10.5281/zenodo.21539839" target="_blank">Rupturas conversacionais e sinais de artificialidade em uma persona no WhatsApp</a></h4>
+                                <p>Estudo exploratório do caso Capivara Romântica, publicado em 24 de julho de 2026.</p>
+                            </div>
+                        </div>
+
+                        <div class="experience-block profile-block">
+                            <h3>Competências, Certificações & Prêmios</h3>
+                            <div class="experience-item">
+                                <p><strong>Idiomas:</strong> Inglês (C1), Espanhol (B2)</p>
+                                <p><strong>Tech:</strong> Python, TypeScript, AWS, IA, Excel Avançado</p>
+                                <p><strong>Certificação:</strong> English Proficiency Certification — C1 Conversational, Duolingo English Test.</p>
+                                <p><strong>Missão 42:</strong> Python, resolução de problemas e Bash.</p>
+                                <p><strong>Prêmios:</strong> Medalha de Ouro na Olimpíada Brasileira de Ciências, Ministério da Ciência, Tecnologia e Inovação (emitida em jan. de 2022); Top 3% ENEM 2024.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="details">
+                    <div class="details" data-i18n-container="experience">
                         <div class="experience-block">
                             <h3>Experiência Profissional</h3>
                             
                             <div class="experience-item">
-                                <h4>Desenvolvimento de Software</h4>
-                                <p>Espaço de Inovação do Departamento de Física da UFMG (Fev 2026 - Presente)</p>
+                                <h4>P&D — Laboratório de Engenharia de Sistemas, Dados e Inovação</h4>
+                                <p>Escola de Engenharia da UFMG (ago. de 2026 — o momento)</p>
+                                <ul class="experience-list">
+                                    <li>Desenvolvimento de página web para a Escola de Engenharia da UFMG com React e Figma.</li>
+                                    <li>Criação de sistema acadêmico para mestrado e doutorado voltado à Escola de Engenharia, à UFMG e a universidades federais brasileiras.</li>
+                                </ul>
+                            </div>
+
+                            <div class="experience-item">
+                                <h4>Desenvolvedor Full Stack — Espaço de Inovação, Departamento de Física</h4>
+                                <p>UFMG (mar. de 2026 — o momento)</p>
+                                <ul class="experience-list">
+                                    <li>Desenvolvimento ágil de aplicativo de aprendizado em duas etapas para o <a href="https://meliora.ufmg.br/" target="_blank">Meliora</a>, com PHP, Laravel, Vue.js, JavaScript, MySQL, OpenAI API e Git.</li>
+                                </ul>
                             </div>
                             
                             <div class="experience-item">
@@ -84,8 +128,11 @@
                             </div>
                             
                             <div class="experience-item">
-                                <h4>Administrativo</h4>
-                                <p>Gusmão Madeiras. Excel e gestão de processos. (2020-2021)</p>
+                                <h4>Assistente Administrativo — Aprendiz</h4>
+                                <p>Gusmão Madeiras (nov. de 2020 — abr. de 2021)</p>
+                                <ul class="experience-list">
+                                    <li>Suporte aos Departamentos Administrativos e de TI, com atendimento ao cliente, entrada de dados e documentação técnica.</li>
+                                </ul>
                             </div>
                         </div>
 
@@ -93,28 +140,26 @@
                             <h3>Voluntariado & Liderança</h3>
                             <div class="experience-item">
                                 <h4>Revista Entreparágrafos (2026-Atual)</h4>
-                                <p>Desenvolvedor e mantenedor da revista online</p>
+                                <p>Manutenção do site, infraestrutura digital e suporte técnico.</p>
+                                <p>Desenvolvimento acelerado de competências full stack, com entrega de API completa, login seguro e gerenciamento de banco de dados.</p>
                             </div>
                             <div class="experience-item">
-                                <h4>Projeto Rondon (Jan 2026)</h4>
-                                <p>Coordenador de Campo em Montalvânia. Gestão em campo de +6.000 dados e oficinas com a população.</p>
+                                <h4>Coordenador de Campo — Projeto Rondon</h4>
+                                <p>jan. de 2026 · 1 mês · Direitos civis e ações sociais</p>
+                                <ul class="experience-list">
+                                    <li>Realização de trabalho de campo com coleta de mais de 6.000 dados de moradores urbanos e rurais, subsidiando relatórios estratégicos ao Ministério Público e à Prefeitura.</li>
+                                    <li>Condução de oficinas de alfabetização, matemática e lógica para crianças, além de ações de arrecadação para um abrigo infantil local.</li>
+                                    <li>Coordenação de eventos públicos com triagens básicas de saúde, atividades recreativas e campanhas de conscientização em saúde mental.</li>
+                                </ul>
                             </div>
                             <div class="experience-item">
-                                <h4>Gusli Academy (2024)</h4>
-                                <p>Ensino de português e inglês a refugiados</p>
+                                <h4>Missão 42</h4>
+                                <p>dez. de 2025 · Bootcamp intensivo de programação e resolução de problemas na 42 SP.</p>
                             </div>
                             <div class="experience-item">
-                                <h4>Missão 42 (Dez 2025)</h4>
-                                <p>Bootcamp intensivo de programação e problem solving na 42 SP.</p>
-                            </div>
-                        </div>
-
-                        <div class="experience-block">
-                            <h3>Competências & Prêmios</h3>
-                            <div class="experience-item">
-                                <p><strong>Idiomas:</strong> Inglês (C1), Espanhol (B2)</p>
-                                <p><strong>Tech:</strong> Python, TypeScript, AWS, IA, Excel Avançado</p>
-                                <p><strong>Prêmios:</strong> Medalha de Ouro (OBC), Top 3% ENEM 2024</p>
+                                <h4>Fundador e Professor Voluntário — Gusli Academy</h4>
+                                <p>jan. de 2024 — jan. de 2025 · 1 ano e 1 mês · Educação</p>
+                                <p>Fundação de iniciativa para auxiliar estrangeiros interessados em aprender português e brasileiros que desejavam aprender inglês, conectando professores em aprimoramento metodológico a estudantes online com barreiras financeiras ao acesso a aulas particulares ou em grupo.</p>
                             </div>
                         </div>
                     </div>
@@ -124,91 +169,51 @@
 
         <section id="projetos">
             <div class="container">
-                <h2 class="section-title">Meus Projetos</h2>
+                <h2 class="section-title" data-i18n="projectsTitle">Meus Projetos</h2>
             </div>
-            <div class="scroll-container">
-                
-            <a href="https://meliora.ufmg.br/" class="project-card" target="_blank">
-                <div>
-                    <h3>Meliora 2.0 SDF</h3>
-                    <p style="margin-top: 10px;">Aplicação web para gestão integrada de processos e dados. Desenvolvida com Laravel 5.7 e Vue.js.</p>
+            <div class="project-carousel" aria-label="Projetos desenvolvidos" data-i18n-aria-label="projectsLabel">
+                <div class="project-track">
+                    <div class="project-group">
+                        <a href="https://meliora.ufmg.br/" class="project-card" style="--image: url('images/meliora.png'); --curve-offset: -72px;" target="_blank">
+                            <div class="project-card__content"><span class="project-index">01</span><h3>Meliora 2.0 SDF</h3><p>Aplicação web para gestão integrada de processos e dados. Desenvolvida com Laravel 5.7 e Vue.js.</p></div><span class="project-category">Sistemas Web Complexos</span>
+                        </a>
+                        <a href="https://sistemafinanceirpython.streamlit.app/" class="project-card" style="--image: url('images/sistema-financeiro.png'); --curve-offset: -40px;" target="_blank">
+                            <div class="project-card__content"><span class="project-index">02</span><h3>Sistema Financeiro</h3><p>Plataforma de gestão financeira pessoal com inteligência de investimentos (Modelo de Markowitz) usando Python e Streamlit.</p></div><span class="project-category">Automações Inteligentes e IA</span>
+                        </a>
+                        <a href="https://doi.org/10.5281/zenodo.21536403" class="project-card project-card--text" style="--curve-offset: -10px;" target="_blank">
+                            <div class="project-card__content"><span class="project-index">03</span><h3>Capivara Romântica</h3><p>Agente de IA customizado para WhatsApp utilizando OpenAI e FastAPI, simulando a personalidade de um universitário.</p></div><span class="project-category">Automações Inteligentes</span>
+                        </a>
+                        <a href="https://gusli-books.onrender.com" class="project-card" style="--image: url('images/gusli-books.png'); --curve-offset: 14px;" target="_blank">
+                            <div class="project-card__content"><span class="project-index">04</span><h3>Gusli Books</h3><p>Plataforma de e-commerce de livros com Node.js, React e SQLite. Demonstração de loja virtual literária completa.</p></div><span class="project-category">Landing Pages e E-commerces</span>
+                        </a>
+                        <a href="https://www.gusmaomadeiras.com.br/" class="project-card" style="--image: url('images/gusmao-madeiras.png'); --curve-offset: 28px;" target="_blank">
+                            <div class="project-card__content"><span class="project-index">05</span><h3>Gusmão Madeiras</h3><p>Portfólio web responsivo em SPA, catálogo com filtros em tempo real e integração com WhatsApp para orçamentos.</p></div><span class="project-category">Landing Pages</span>
+                        </a>
+                        <a href="https://entreparagrafos.com.br/" class="project-card" style="--image: url('images/entreparagrafos.png'); --curve-offset: 14px;" target="_blank">
+                            <div class="project-card__content"><span class="project-index">06</span><h3>Revista Entre Parágrafos</h3><p>Portal acadêmico completo com sistema back-end, área restrita para autores e leitores para publicação de artigos.</p></div><span class="project-category">Sistemas Web Complexos</span>
+                        </a>
+                        <a href="https://github.com/limag-henrique/are-you-a-criminal-ML/" class="project-card" style="--image: url('images/machine-learning.png'); --curve-offset: -10px;" target="_blank">
+                            <div class="project-card__content"><span class="project-index">07</span><h3>Are You a Criminal</h3><p>Machine Learning em Python que extrai um embedding facial normalizado e compara com um conjunto local de imagens de referência.</p></div><span class="project-category">Machine Learning e Visão Computacional</span>
+                        </a>
+                        <a href="https://github.com/limag-henrique/gweb/" class="project-card" style="--image: url('images/gweb.png'); --curve-offset: -40px;" target="_blank">
+                            <div class="project-card__content"><span class="project-index">08</span><h3>GWeb</h3><p>Aplicativo de desenvolvimento de software web através de interfaces gráficas facilitadas. Desenvolvido com C#.</p></div><span class="project-category">Ferramentas de Desenvolvimento</span>
+                        </a>
+                        <a href="https://github.com/limag-henrique/hackaton-kitchlean" class="project-card" style="--image: url('images/kitchlean.png'); --curve-offset: -72px;" target="_blank">
+                            <div class="project-card__content"><span class="project-index">09</span><h3>Kitchlean</h3><p>Plataforma SaaS que ajuda restaurantes a transformar capacidade ociosa em marcas virtuais para delivery, com diagnóstico, recomendações de IA e projeções financeiras.</p></div><span class="project-category">SaaS, IA e Food Service</span>
+                        </a>
+                    </div>
+                    <div class="project-group" aria-hidden="true">
+                        <a href="https://meliora.ufmg.br/" class="project-card" style="--image: url('images/meliora.png'); --curve-offset: -72px;" target="_blank" tabindex="-1"><div class="project-card__content"><span class="project-index">01</span><h3>Meliora 2.0 SDF</h3><p>Aplicação web para gestão integrada de processos e dados. Desenvolvida com Laravel 5.7 e Vue.js.</p></div><span class="project-category">Sistemas Web Complexos</span></a>
+                        <a href="https://sistemafinanceirpython.streamlit.app/" class="project-card" style="--image: url('images/sistema-financeiro.png'); --curve-offset: -40px;" target="_blank" tabindex="-1"><div class="project-card__content"><span class="project-index">02</span><h3>Sistema Financeiro</h3><p>Plataforma de gestão financeira pessoal com inteligência de investimentos (Modelo de Markowitz) usando Python e Streamlit.</p></div><span class="project-category">Automações Inteligentes e IA</span></a>
+                        <a href="https://doi.org/10.5281/zenodo.21536403" class="project-card project-card--text" style="--curve-offset: -10px;" target="_blank" tabindex="-1"><div class="project-card__content"><span class="project-index">03</span><h3>Capivara Romântica</h3><p>Agente de IA customizado para WhatsApp utilizando OpenAI e FastAPI, simulando a personalidade de um universitário.</p></div><span class="project-category">Automações Inteligentes</span></a>
+                        <a href="https://gusli-books.onrender.com" class="project-card" style="--image: url('images/gusli-books.png'); --curve-offset: 14px;" target="_blank" tabindex="-1"><div class="project-card__content"><span class="project-index">04</span><h3>Gusli Books</h3><p>Plataforma de e-commerce de livros com Node.js, React e SQLite. Demonstração de loja virtual literária completa.</p></div><span class="project-category">Landing Pages e E-commerces</span></a>
+                        <a href="https://www.gusmaomadeiras.com.br/" class="project-card" style="--image: url('images/gusmao-madeiras.png'); --curve-offset: 28px;" target="_blank" tabindex="-1"><div class="project-card__content"><span class="project-index">05</span><h3>Gusmão Madeiras</h3><p>Portfólio web responsivo em SPA, catálogo com filtros em tempo real e integração com WhatsApp para orçamentos.</p></div><span class="project-category">Landing Pages</span></a>
+                        <a href="https://entreparagrafos.com.br/" class="project-card" style="--image: url('images/entreparagrafos.png'); --curve-offset: 14px;" target="_blank" tabindex="-1"><div class="project-card__content"><span class="project-index">06</span><h3>Revista Entre Parágrafos</h3><p>Portal acadêmico completo com sistema back-end, área restrita para autores e leitores para publicação de artigos.</p></div><span class="project-category">Sistemas Web Complexos</span></a>
+                        <a href="https://github.com/limag-henrique/are-you-a-criminal-ML/" class="project-card" style="--image: url('images/machine-learning.png'); --curve-offset: -10px;" target="_blank" tabindex="-1"><div class="project-card__content"><span class="project-index">07</span><h3>Are You a Criminal</h3><p>Machine Learning em Python que extrai um embedding facial normalizado e compara com um conjunto local de imagens de referência.</p></div><span class="project-category">Machine Learning e Visão Computacional</span></a>
+                        <a href="https://github.com/limag-henrique/gweb/" class="project-card" style="--image: url('images/gweb.png'); --curve-offset: -40px;" target="_blank" tabindex="-1"><div class="project-card__content"><span class="project-index">08</span><h3>GWeb</h3><p>Aplicativo de desenvolvimento de software web através de interfaces gráficas facilitadas. Desenvolvido com C#.</p></div><span class="project-category">Ferramentas de Desenvolvimento</span></a>
+                        <a href="https://github.com/limag-henrique/hackaton-kitchlean" class="project-card" style="--image: url('images/kitchlean.png'); --curve-offset: -72px;" target="_blank" tabindex="-1"><div class="project-card__content"><span class="project-index">09</span><h3>Kitchlean</h3><p>Plataforma SaaS que ajuda restaurantes a transformar capacidade ociosa em marcas virtuais para delivery, com diagnóstico, recomendações de IA e projeções financeiras.</p></div><span class="project-category">SaaS, IA e Food Service</span></a>
+                    </div>
                 </div>
-                <p>Sistemas Web Complexos</p>
-                <span class="project-bg-number">01</span>
-            </a>
-
-            <a href="https://sistemafinanceirpython.streamlit.app/" class="project-card" target="_blank">
-                <div>
-                    <h3>Sistema Financeiro</h3>
-                    <p style="margin-top: 10px;">Plataforma de gestão financeira pessoal com inteligência de investimentos (Modelo de Markowitz) usando Python e Streamlit.</p>
-                </div>
-                <p>Automações Inteligentes e IA</p>
-                <span class="project-bg-number">02</span>
-            </a>
-
-            <a href="https://doi.org/10.5281/zenodo.21536403" class="project-card" target="_blank">
-                <div>
-                    <h3>Capivara Romântica</h3>
-                    <p style="margin-top: 10px;">Agente de IA customizado para WhatsApp utilizando OpenAI e FastAPI, simulando a personalidade de um universitário.</p>
-                </div>
-                <p>Automações Inteligentes</p>
-                <span class="project-bg-number">03</span>
-            </a>
-
-            <a href="https://gusli-books.onrender.com" class="project-card" target="_blank">
-                <div>
-                    <h3>Gusli Books</h3>
-                    <p style="margin-top: 10px;">Plataforma de e-commerce de livros com Node.js, React e SQLite. Demonstração de loja virtual literária completa.</p>
-                </div>
-                <p>Landing Pages e E-commerces</p>
-                <span class="project-bg-number">04</span>
-            </a>
-
-            <a href="https://www.gusmaomadeiras.com.br/" class="project-card" target="_blank">
-                <div>
-                    <h3>Gusmão Madeiras</h3>
-                    <p style="margin-top: 10px;">Portfólio web responsivo em SPA, catálogo com filtros em tempo real e integração com WhatsApp para orçamentos.</p>
-                </div>
-                <p>Landing Pages</p>
-                <span class="project-bg-number">05</span>
-            </a>
-
-            <a href="https://entreparagrafos.com.br/" class="project-card" target="_blank">
-                <div>
-                    <h3>Revista Entre Parágrafos</h3>
-                    <p style="margin-top: 10px;">Portal acadêmico completo com sistema back-end, área restrita para autores e leitores para publicação de artigos.</p>
-                </div>
-                <p>Sistemas Web Complexos</p>
-                <span class="project-bg-number">06</span>
-            </a>
-
-            <a href="https://github.com/limag-henrique/are-you-a-criminal-ML/" class="project-card" target="_blank">
-                <div>
-                    <h3>Are You a Criminal</h3>
-                    <p style="margin-top: 10px;">Machine Learning em Python que extrai um embedding facial normalizado e compara com um conjunto local de imagens de referência.</p>
-                </div>
-                <p>Machine Learning e Visão Computacional</p>
-                <span class="project-bg-number">07</span>
-            </a>
-
-            <a href="https://github.com/limag-henrique/gweb/" class="project-card" target="_blank">
-                <div>
-                    <h3>GWeb</h3>
-                    <p style="margin-top: 10px;">Aplicativo de desenvolvimento de software web através de interfaces gráficas facilitadas. Desenvolvido com C#.</p>
-                </div>
-                <p>Ferramentas de Desenvolvimento</p>
-                <span class="project-bg-number">08</span>
-            </a>
-
-            <a href="https://github.com/limag-henrique/hackaton-kitchlean" class="project-card" target="_blank">
-                <div>
-                    <h3>Kitchlean</h3>
-                    <p style="margin-top: 10px;">Plataforma SaaS que ajuda restaurantes a transformar capacidade ociosa em marcas virtuais para delivery, com diagnóstico, recomendações de IA e projeções financeiras.</p>
-                </div>
-                <p>SaaS, IA e Food Service</p>
-                <span class="project-bg-number">09</span>
-            </a>
-
             </div>
         </section>
 
@@ -217,12 +222,12 @@
                 <div class="contact-wrapper">
                     
                     <div class="contact-logo">
-                        <img src="images/logo.png" alt="Logo Henrique">
+                        <img src="images/logo.png" alt="Logo Henrique" data-i18n-alt="contact.logoAlt">
                     </div>
 
                     <div class="contact-text">
-                        <p style="font-size: 1.2rem; margin-bottom: 20px; color: var(--accent);">Se interessou?</p>
-                        <h2>ENTÃO VAMOS<br>CONVERSAR.</h2>
+                        <p style="font-size: 1.2rem; margin-bottom: 20px; color: var(--accent);" data-i18n="contact.prompt">Se interessou?</p>
+                        <h2 data-i18n-html="contact.heading">ENTÃO VAMOS<br>CONVERSAR.</h2>
                         
                         <div class="contact-links">
                             <a href="mailto:henriquelimagusmao@gmail.com">
@@ -245,43 +250,10 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 Henrique Lima Gusmão</p>
-            <p>Ciência da Computação - UFMG</p>
+            <p data-i18n="footer">Ciência da Computação - UFMG</p>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const scrollContainer = document.querySelector('.scroll-container');
-            if (!scrollContainer) return;
-            
-            let autoScrollInterval;
-
-            function startAutoScroll() {
-                autoScrollInterval = setInterval(() => {
-                    const firstCard = scrollContainer.querySelector('.project-card');
-                    if (!firstCard) return;
-                    
-                    const cardWidth = firstCard.offsetWidth + 30; // 30px is the gap
-                    
-                    if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 10) {
-                        scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
-                    } else {
-                        scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
-                    }
-                }, 3000);
-            }
-
-            function stopAutoScroll() {
-                clearInterval(autoScrollInterval);
-            }
-
-            scrollContainer.addEventListener('mouseenter', stopAutoScroll);
-            scrollContainer.addEventListener('mouseleave', startAutoScroll);
-            scrollContainer.addEventListener('touchstart', stopAutoScroll, {passive: true});
-            scrollContainer.addEventListener('touchend', startAutoScroll, {passive: true});
-
-            startAutoScroll();
-        });
-    </script>
+    <script type="module" src="main.js"></script>
 </body>
 </html>

@@ -63,6 +63,45 @@ header .interface {
     align-items: center;
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: rgba(31, 41, 51, 0.4);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.language-option {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    padding: 4px 0;
+    transition: var(--transition);
+}
+
+.language-option:hover,
+.language-option:focus-visible,
+.language-option.is-active {
+    color: var(--accent);
+}
+
+.language-option:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
 .logo {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.2rem;
@@ -281,72 +320,207 @@ nav a:hover::after {
     color: #4a5568;
 }
 
+.experience-list {
+    display: grid;
+    gap: 8px;
+    margin: 12px 0 0 18px;
+    color: #4a5568;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.profile-block {
+    margin-top: 52px;
+}
+
+.experience-item a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 106, 0, 0.35);
+    text-underline-offset: 0.18em;
+    transition: var(--transition);
+}
+
+.experience-item h4 a {
+    color: inherit;
+}
+
+.experience-item a:hover {
+    color: #c95300;
+    text-decoration-color: currentColor;
+}
+
 /* --- PROJETOS --- */
 #projetos {
-    padding: 100px 0;
+    padding: 100px 0 130px;
     background-color: #d6d6d6;
     overflow: hidden;
 }
 
-.scroll-container {
+.project-carousel {
+    width: 100%;
+    overflow: hidden;
+    padding: 120px 0 78px;
+    mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+
+.project-track {
     display: flex;
-    overflow-x: auto;
+    width: max-content;
+    animation: project-marquee 52s linear infinite;
+}
+
+.project-group {
+    display: flex;
+    align-items: center;
     gap: 30px;
-    padding: 20px 5%;
-    padding-bottom: 50px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin; 
-    scrollbar-color: var(--accent) transparent;
-}
-
-.scroll-container::-webkit-scrollbar {
-    height: 8px;
-}
-
-.scroll-container::-webkit-scrollbar-thumb {
-    background-color: var(--accent);
-    border-radius: 4px;
+    padding-right: 30px;
 }
 
 .project-card {
-    min-width: 400px;
-    height: 500px;
-    background-color: var(--text-main);
+    width: clamp(280px, 29vw, 390px);
+    height: 465px;
+    flex: 0 0 auto;
+    isolation: isolate;
+    background: var(--text-main);
     color: var(--white);
-    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    scroll-snap-align: center;
-    border-radius: 8px;
-    transition: var(--transition);
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 22px;
+    box-shadow: 0 22px 45px rgba(31, 41, 51, 0.14);
+    transform: translateY(var(--curve-offset));
+    transform-origin: center center;
+    transition: transform 650ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 420ms cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
     overflow: hidden;
+    will-change: transform;
 }
 
-.project-card:hover {
-    transform: scale(1.02);
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-image: var(--image);
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.01);
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1), filter 500ms ease;
+}
+
+.project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(8, 15, 22, 0.18) 0%, rgba(8, 15, 22, 0.35) 34%, rgba(8, 15, 22, 0.94) 100%);
+    transition: background 500ms ease;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+    transform: translateY(var(--curve-offset)) scaleX(1.18);
+    box-shadow: 0 34px 60px rgba(31, 41, 51, 0.28);
+    z-index: 2;
+}
+
+/* Arcos curtos que se repetem sem saltos ao reiniciar o carrossel. */
+.project-group .project-card:nth-child(9n + 1),
+.project-group .project-card:nth-child(9n + 5),
+.project-group .project-card:nth-child(9n + 9) {
+    --curve-offset: -115px !important;
+}
+
+.project-group .project-card:nth-child(9n + 2),
+.project-group .project-card:nth-child(9n + 4),
+.project-group .project-card:nth-child(9n + 6),
+.project-group .project-card:nth-child(9n + 8) {
+    --curve-offset: -52px !important;
+}
+
+.project-group .project-card:nth-child(9n + 3),
+.project-group .project-card:nth-child(9n + 7) {
+    --curve-offset: 0px !important;
+}
+
+.project-card:hover::before,
+.project-card:focus-visible::before {
+    transform: scale(1.18);
+    filter: saturate(1.08) contrast(1.04);
+}
+
+.project-card:hover::after,
+.project-card:focus-visible::after {
+    background: linear-gradient(180deg, rgba(8, 15, 22, 0.08) 0%, rgba(8, 15, 22, 0.23) 25%, rgba(8, 15, 22, 0.88) 100%);
+}
+
+.project-card:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 5px;
+}
+
+.project-card--text {
+    background: radial-gradient(circle at 85% 12%, rgba(255, 106, 0, 0.9), transparent 33%), linear-gradient(135deg, #111d28, #253d50);
+}
+
+.project-card--text::before {
+    background-image: none;
+    background: repeating-linear-gradient(-45deg, transparent 0 12px, rgba(255, 255, 255, 0.035) 12px 13px);
+}
+
+.project-card--text::after {
+    background: linear-gradient(180deg, rgba(8, 15, 22, 0.1), rgba(8, 15, 22, 0.72));
+}
+
+.project-card__content {
+    max-width: 100%;
+}
+
+.project-index {
+    display: inline-block;
+    margin-bottom: 70px;
+    color: var(--accent);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
 }
 
 .project-card h3 {
-    font-size: 2rem;
-    z-index: 2;
+    font-size: clamp(1.65rem, 2.4vw, 2.2rem);
+    line-height: 0.95;
+    margin-bottom: 16px;
 }
 
 .project-card p {
-    font-size: 1rem;
-    opacity: 0.8;
-    z-index: 2;
+    font-size: 0.93rem;
+    line-height: 1.5;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 350ms ease, transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.project-bg-number {
-    position: absolute;
-    bottom: -20px;
-    right: -10px;
-    font-size: 10rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.05);
-    z-index: 1;
+.project-card:hover p,
+.project-card:focus-visible p {
+    opacity: 0.9;
+    transform: translateY(0);
+}
+
+.project-category {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1.35;
+    text-transform: uppercase;
+}
+
+@keyframes project-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
 /* --- CONTATO (MODIFICADO COM LOGO) --- */
@@ -446,14 +620,48 @@ footer {
 /* Mobile Geral */
 @media (max-width: 768px) {
     header .menu-desktop { display: none; }
+
+    header .interface {
+        gap: 16px;
+    }
+
+    .header-actions {
+        gap: 12px;
+    }
+
+    .btn-header {
+        padding: 9px 16px;
+    }
     
     .about-grid {
         grid-template-columns: 1fr;
     }
 
+    .project-carousel {
+        padding: 65px 0 48px;
+        mask-image: none;
+    }
+
+    .project-track {
+        animation-duration: 42s;
+    }
+
+    .project-group {
+        gap: 18px;
+        padding-right: 18px;
+    }
+
     .project-card {
-        min-width: 85vw;
+        width: min(82vw, 340px);
         height: 400px;
+    }
+
+    .project-group .project-card {
+        --curve-offset: 0px !important;
+    }
+
+    .project-index {
+        margin-bottom: 45px;
     }
     
     .btn-social {
@@ -475,5 +683,18 @@ footer {
 @media (max-height: 600px) {
     .cta-wrapper {
         bottom: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-track {
+        animation: none;
+    }
+
+    .project-card,
+    .project-card::before,
+    .project-card::after,
+    .project-card p {
+        transition: none;
     }
 }
